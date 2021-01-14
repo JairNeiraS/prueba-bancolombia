@@ -1,0 +1,95 @@
+<div class="nav justify-content-center p-4">
+  <h1>Aplicación del Clima</h1>
+</div>
+<div class="container p-4">
+  <div class="row">
+    <div class="col-md-12 mx-auto">
+      <div class="card card-body">
+        <form (submit)="submitLocation(cityName)">
+          <input type="text" class="form-control" placeholder="Nombre de la Ciudad" #cityName>
+          <button class="btn btn-primary mt-2 mx-auto">
+            Obtener clima
+          </button>
+        </form>
+
+      </div>
+    </div>
+    <!--Clima-->
+    <div class="row">
+      <div class="col-md-4 mx-auto p-4">
+        <div class="clima card card-body" *ngIf="weather" mt-4>
+          <h2 class="mx-auto pb-3">{{weather.city.name}}</h2>
+          <p class="descripcion mx-auto">{{weather.list[0].weather[0].description}}</p>
+          <h3 class="temperatura mx-auto">{{weather.list[0].main.temp}} °C</h3>
+          <p class="fecha mx-auto">{{weather.list[0].dt_txt}}</p>
+          <!-- tabla de datos-->
+
+          <div class="row">
+            <div class="col-md-6 p-4">
+              <div class="tempmaxmin card" style="width: auto;">
+                <img src="./assets/imagenes/temp-01.png" class="card-img-top mx-auto" alt="...">
+                <div class="card-body mx-auto">
+                  <p class="card-text"><b>Temp Max:</b> <br>{{weather.list[0].main.temp_max}} °C</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 p-4">
+              <div class="tempmaxmin card" style="width: auto;">
+                <img src="./assets/imagenes/temp-02.png" class="card-img-top mx-auto" alt="...">
+                <div class="card-body mx-auto">
+                  <p class="card-text"><b>Temp Min:</b><br> {{weather.list[0].main.temp_min}} °C</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- fin tabla de datos-->
+          <!-- tabla de datos ocultos-->
+          <div class=" accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  Ver más datos
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                  <table class="table table-hover">
+                    <tbody>
+                      <tr>
+                        <th scope="row">Velocidad del viento: </th>
+                        <td>{{weather.list[0].wind.speed}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Humedad: </th>
+                        <td>{{weather.list[0].main.humidity}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Presión </th>
+                        <td>{{weather.list[0].main.pressure}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Zona horaria: </th>
+                        <td>{{weather.city.timezone}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- tabla de datos ocultos-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Grafica-->
+  <div class="row">
+    <div class="col-md-10 mx-auto" *ngIf="weather">
+      <div class="card card-body">
+        <app-my-chart></app-my-chart>
+      </div>
+    </div>
+  </div>
+</div>

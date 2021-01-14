@@ -1,0 +1,90 @@
+h1{
+    color: cornsilk;
+    font-size: 40px;
+}
+
+h2{
+    color: #FFF;
+    font-size: 35px;
+    position: relative;
+}
+.nav{
+    background-color: rgb(0, 0, 134);
+}
+
+
+.clima{
+    background-image: url("https://pa1.narvii.com/7045/4649bde01cf62ab70cf1ccc441f2ebde7a01d1a3r1-435-250_hq.gif"); 
+    background-size: cover;
+    position: relative;
+}
+
+.clima:before{
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+
+.descripcion{
+    margin-bottom: -10px;
+    font-size: 20px;
+    color: #FFF;
+    position: relative;
+}
+
+.fecha{
+    font-size: 15px;
+    color: #FFF;
+    position: relative;
+    margin-top: -10px;
+}
+
+ 
+
+.temperatura{
+    padding: 4px;
+    font-size: 80px;
+    color: #FFF;
+    position: relative;
+}
+
+.tempmaxmin {
+    
+    background-color: #f0f8ff57
+    } 
+.tempmaxmin img{
+width: 80px;
+position: relative;
+
+}
+
+.table{
+color:#f8f9fa;
+position: relative;
+}
+
+.accordion-flush .accordion-item:first-of-type .accordion-button {
+    
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.accordion-button{
+    color:#FFF;
+}
+.accordion-button:not(.collapsed) {
+    color: #0c63e4;
+    
+}
+.accordion-button::after {
+    background-image: none;
+}
